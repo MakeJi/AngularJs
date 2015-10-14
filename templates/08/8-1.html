@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../static/angular.min.js"></script>
+</head>
+<body>
+	<my-directive></my-directive>
+	<!-- 其他几种声明创建指令的合法格式 -->
+	<div my-directive></div>
+
+	<h1 ng-init="greeting='Hello'">
+		The greeting is: {{ greeting }}
+	</h1>
+	<script type="text/javascript">
+	//1、指令定义
+	angular.module('myApp',[])
+	.directive('myDirective', function(){
+		return {
+			restrivt: 'A',
+			replace: true,	//将自定义标签从生成的DOM中完全移除掉，并只留下由模板生成的链接
+			template: '<a href="http://www.baidu.com">Click me to go to Baidu</a>'
+		}
+	});
+	</script>
+</body>
+</html>
